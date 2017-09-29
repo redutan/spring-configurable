@@ -35,18 +35,18 @@ public class BeanProviderTest {
     public void newPojo() throws Exception {
         // given
         // when
-        Bean pojo = pojoProvider.get();
+        Bean bean = pojoProvider.get();
         // then
-        assertThat(pojo.getPojoRepository(), is(notNullValue()));
+        assertThat(bean.getPojoRepository(), is(notNullValue()));
     }
 
     @Test
     public void newPojo_checkEquals() throws Exception {
         // given
-        Bean pojo1 = pojoProvider.get();
-        Bean pojo2 = pojoProvider.get();
+        Bean bean1 = pojoProvider.get();
+        Bean bean2 = pojoProvider.get();
         // when
-        boolean isEqual = pojo1.equals(pojo2);
+        boolean isEqual = bean1.equals(bean2);
         // then
         assertThat(isEqual, is(true));
     }
@@ -54,10 +54,10 @@ public class BeanProviderTest {
     @Test
     public void newPojo_checkSame() throws Exception {
         // given
-        Bean pojo1 = pojoProvider.get();
-        Bean pojo2 = pojoProvider.get();
+        Bean bean1 = pojoProvider.get();
+        Bean bean2 = pojoProvider.get();
         // when
-        boolean isSame = pojo1 == pojo2;
+        boolean isSame = bean1 == bean2;
         // then
         assertThat(isSame, is(true));
     }
@@ -66,18 +66,18 @@ public class BeanProviderTest {
     public void newPrototypePojo() throws Exception {
         // given
         // when
-        Bean pojo = prototypePojoProvider.get();
+        Bean bean = prototypePojoProvider.get();
         // then
-        assertThat(pojo.getPojoRepository(), is(notNullValue()));
+        assertThat(bean.getPojoRepository(), is(notNullValue()));
     }
 
     @Test
     public void newPrototypePojo_checkEquals() throws Exception {
         // given
-        Bean pojo1 = prototypePojoProvider.get();
-        Bean pojo2 = prototypePojoProvider.get();
+        Bean bean1 = prototypePojoProvider.get();
+        Bean bean2 = prototypePojoProvider.get();
         // when
-        boolean isEqual = pojo1.equals(pojo2);
+        boolean isEqual = bean1.equals(bean2);
         // then
         assertThat(isEqual, is(true));
     }
@@ -85,10 +85,10 @@ public class BeanProviderTest {
     @Test
     public void newPrototypePojo_checkSame() throws Exception {
         // given
-        Bean pojo1 = prototypePojoProvider.get();
-        Bean pojo2 = prototypePojoProvider.get();
+        Bean bean1 = prototypePojoProvider.get();
+        Bean bean2 = prototypePojoProvider.get();
         // when
-        boolean isSame = pojo1 == pojo2;
+        boolean isSame = bean1 == bean2;
         // then
         assertThat(isSame, is(false));
     }

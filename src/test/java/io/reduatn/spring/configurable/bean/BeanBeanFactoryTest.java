@@ -26,18 +26,18 @@ public class BeanBeanFactoryTest {
     public void newPojo() throws Exception {
         // given
         // when
-        Bean pojo = beanFactory.getBean("bean", Bean.class);
+        Bean bean = beanFactory.getBean("bean", Bean.class);
         // then
-        assertThat(pojo.getPojoRepository(), is(notNullValue()));
+        assertThat(bean.getPojoRepository(), is(notNullValue()));
     }
 
     @Test
     public void newPojo_checkEquals() throws Exception {
         // given
-        Bean pojo1 = beanFactory.getBean("bean", Bean.class);
-        Bean pojo2 = beanFactory.getBean("bean", Bean.class);
+        Bean bean1 = beanFactory.getBean("bean", Bean.class);
+        Bean bean2 = beanFactory.getBean("bean", Bean.class);
         // when
-        boolean isEqual = pojo1.equals(pojo2);
+        boolean isEqual = bean1.equals(bean2);
         // then
         assertThat(isEqual, is(true));
     }
@@ -45,10 +45,10 @@ public class BeanBeanFactoryTest {
     @Test
     public void newPojo_checkSame() throws Exception {
         // given
-        Bean pojo1 = beanFactory.getBean("bean", Bean.class);
-        Bean pojo2 = beanFactory.getBean("bean", Bean.class);
+        Bean bean1 = beanFactory.getBean("bean", Bean.class);
+        Bean bean2 = beanFactory.getBean("bean", Bean.class);
         // when
-        boolean isSame = pojo1 == pojo2;
+        boolean isSame = bean1 == bean2;
         // then
         assertThat(isSame, is(true));
     }
@@ -57,18 +57,18 @@ public class BeanBeanFactoryTest {
     public void newPrototypePojo() throws Exception {
         // given
         // when
-        Bean pojo = beanFactory.getBean("prototypeBean", Bean.class);
+        Bean bean = beanFactory.getBean("prototypeBean", Bean.class);
         // then
-        assertThat(pojo.getPojoRepository(), is(notNullValue()));
+        assertThat(bean.getPojoRepository(), is(notNullValue()));
     }
 
     @Test
     public void newPrototypePojo_checkEquals() throws Exception {
         // given
-        Bean pojo1 = beanFactory.getBean("prototypeBean", Bean.class);
-        Bean pojo2 = beanFactory.getBean("prototypeBean", Bean.class);
+        Bean bean1 = beanFactory.getBean("prototypeBean", Bean.class);
+        Bean bean2 = beanFactory.getBean("prototypeBean", Bean.class);
         // when
-        boolean isEqual = pojo1.equals(pojo2);
+        boolean isEqual = bean1.equals(bean2);
         // then
         assertThat(isEqual, is(true));
     }
@@ -76,10 +76,10 @@ public class BeanBeanFactoryTest {
     @Test
     public void newPrototypePojo_checkSame() throws Exception {
         // given
-        Bean pojo1 = beanFactory.getBean("prototypeBean", Bean.class);
-        Bean pojo2 = beanFactory.getBean("prototypeBean", Bean.class);
+        Bean bean1 = beanFactory.getBean("prototypeBean", Bean.class);
+        Bean bean2 = beanFactory.getBean("prototypeBean", Bean.class);
         // when
-        boolean isSame = pojo1 == pojo2;
+        boolean isSame = bean1 == bean2;
         // then
         assertThat(isSame, is(false));
     }

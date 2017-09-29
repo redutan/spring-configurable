@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author myeongju.jung
  */
-public class BeanTest {
+public class PojoTest {
     @Test
     public void newPojo() throws Exception {
         // given
