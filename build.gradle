@@ -30,6 +30,7 @@ repositories {
 }
 
 
+
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile group: 'javax.inject', name: 'javax.inject', version: '1'

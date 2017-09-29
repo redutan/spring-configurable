@@ -1,4 +1,4 @@
-package io.reduatn.spring.configurable.pojo;
+package io.reduatn.spring.configurable.bean;
 
 import org.junit.Test;
 
@@ -9,12 +9,12 @@ import static org.junit.Assert.assertThat;
 /**
  * @author myeongju.jung
  */
-public class PojoTest {
+public class BeanTest {
     @Test
     public void newPojo() throws Exception {
         // given
         // when
-        Pojo pojo = new Pojo();
+        Bean pojo = new Bean();
         // then
         assertThat(pojo.getPojoRepository(), is(nullValue()));
     }

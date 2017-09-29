@@ -1,4 +1,4 @@
-package io.reduatn.spring.configurable.dipojo;
+package io.reduatn.spring.configurable.dibean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -14,29 +14,29 @@ import javax.persistence.Transient;
 @SuppressWarnings({"SpringAutowiredFieldsWarningInspection", "SpringJavaAutowiredMembersInspection"})
 @Configurable
 @Entity
-public class DiPojo {
+public class DiBean {
     @Transient
     @Autowired
-    private DiPojoRepository pojoRepository;
+    private DiBeanRepository pojoRepository;
     @Id
     @GeneratedValue
-    private Long pojoNo;
+    private Long beanNo;
     private String description;
 
-    public DiPojoRepository getPojoRepository() {
+    public DiBeanRepository getPojoRepository() {
         return pojoRepository;
     }
 
-    public void setPojoRepository(DiPojoRepository pojoRepository) {
+    public void setPojoRepository(DiBeanRepository pojoRepository) {
         this.pojoRepository = pojoRepository;
     }
 
-    public Long getPojoNo() {
-        return pojoNo;
+    public Long getBeanNo() {
+        return beanNo;
     }
 
-    public void setPojoNo(Long pojoNo) {
-        this.pojoNo = pojoNo;
+    public void setBeanNo(Long beanNo) {
+        this.beanNo = beanNo;
     }
 
     public String getDescription() {
@@ -55,12 +55,12 @@ public class DiPojo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DiPojo diPojo = (DiPojo) o;
+        DiBean diPojo = (DiBean) o;
 
         if (pojoRepository != null ? !pojoRepository.equals(diPojo.pojoRepository) : diPojo.pojoRepository != null) {
             return false;
         }
-        if (pojoNo != null ? !pojoNo.equals(diPojo.pojoNo) : diPojo.pojoNo != null) {
+        if (beanNo != null ? !beanNo.equals(diPojo.beanNo) : diPojo.beanNo != null) {
             return false;
         }
         return description != null ? description.equals(diPojo.description) : diPojo.description == null;
@@ -69,7 +69,7 @@ public class DiPojo {
     @Override
     public int hashCode() {
         int result = pojoRepository != null ? pojoRepository.hashCode() : 0;
-        result = 31 * result + (pojoNo != null ? pojoNo.hashCode() : 0);
+        result = 31 * result + (beanNo != null ? beanNo.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }

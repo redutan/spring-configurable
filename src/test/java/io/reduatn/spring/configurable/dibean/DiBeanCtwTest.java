@@ -1,8 +1,9 @@
-package io.reduatn.spring.configurable.dipojo;
+package io.reduatn.spring.configurable.dibean;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.is;
@@ -14,12 +15,13 @@ import static org.junit.Assert.assertThat;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DiPojoTest {
+@Import(CtwConfiguration.class)
+public class DiBeanCtwTest {
     @Test
     public void newDiPojo() throws Exception {
         // given
         // when
-        DiPojo diPojo = new DiPojo();
+        DiBean diPojo = new DiBean();
         // then
         assertThat(diPojo.getPojoRepository(), is(notNullValue()));
     }
@@ -27,8 +29,8 @@ public class DiPojoTest {
     @Test
     public void newDiPojo_checkEquals() throws Exception {
         // given
-        DiPojo diPojo1 = new DiPojo();
-        DiPojo diPojo2 = new DiPojo();
+        DiBean diPojo1 = new DiBean();
+        DiBean diPojo2 = new DiBean();
         // when
         boolean result = diPojo1.equals(diPojo2);
         // then
@@ -38,8 +40,8 @@ public class DiPojoTest {
     @Test
     public void newDiPojo_checkSame() throws Exception {
         // given
-        DiPojo diPojo1 = new DiPojo();
-        DiPojo diPojo2 = new DiPojo();
+        DiBean diPojo1 = new DiBean();
+        DiBean diPojo2 = new DiBean();
         // when
         boolean result = diPojo1 == diPojo2;
         // then
