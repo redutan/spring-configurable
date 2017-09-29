@@ -5,9 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Scope;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.is;
@@ -19,7 +17,7 @@ import static org.junit.Assert.assertThat;
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Import(BeanConfiguration.class)
+@Import(PojoConfiguration.class)
 public class PojoBeanFactoryTest {
     @Autowired
     private BeanFactory beanFactory;
@@ -87,15 +85,3 @@ public class PojoBeanFactoryTest {
     }
 }
 
-class BeanConfiguration {
-    @Bean
-    Pojo pojo() {
-        return new Pojo();
-    }
-
-    @Scope("prototype")
-    @Bean
-    Pojo prototypePojo() {
-        return new Pojo();
-    }
-}

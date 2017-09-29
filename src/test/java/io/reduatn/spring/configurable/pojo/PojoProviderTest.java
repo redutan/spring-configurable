@@ -5,9 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Scope;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.inject.Provider;
@@ -22,7 +20,7 @@ import static org.junit.Assert.assertThat;
 @SuppressWarnings("SpringJavaAutowiringInspection")
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Import(Bean2Configuration.class)
+@Import(PojoConfiguration.class)
 public class PojoProviderTest {
 
     @Autowired
@@ -96,15 +94,3 @@ public class PojoProviderTest {
     }
 }
 
-class Bean2Configuration {
-    @Bean
-    Pojo pojo() {
-        return new Pojo();
-    }
-
-    @Scope("prototype")
-    @Bean
-    Pojo prototypePojo() {
-        return new Pojo();
-    }
-}
